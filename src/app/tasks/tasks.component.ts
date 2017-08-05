@@ -19,10 +19,15 @@ const TASKS: Task[] = [
 
 export class TasksComponent implements OnInit {
   public tasks;
+  public selectedTask: Task;
 
   public constructor() {}
 
   public ngOnInit() {
     this.tasks = TASKS;
+  }
+
+  public onSelect(task: Task): void {
+    this.selectedTask = task;
   }
 }
