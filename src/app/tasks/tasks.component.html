@@ -1,18 +1,22 @@
+<h1 class="page-header">Lista de Tarefas</h1>
+
 <table class="table">
   <thead>
-    <th>ID</th>
-    <th>Título</th>
-    <th>Ações</th>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Ações</th>
+    </tr>
   </thead>
   <tbody>
     <tr *ngFor="let task of tasks" >
       <td>{{ task.id }}</td>
       <td>{{ task.title }}</td>
       <td>
-        <button class="btn btn-info" data-toggle="modal" data-target="#task-detail-modal" (click)="onSelect(task)">
+        <a [routerLink]="['/tasks', task.id]" class="btn btn-info">
           <span class="glyphicon glyphicon-info-sign"></span>
           Detalhes
-        </button>
+        </a>
         <button class="btn btn-danger">
           <span class="glyphicon glyphicon-trash"></span>
           Excluir
@@ -21,31 +25,3 @@
     </tr>
   </tbody>
 </table>
-
-<div *ngIf="selectedTask">
-  <p>
-    <strong>ID: </strong> {{ selectedTask.id }}
-  </p>
-  <p>
-    <strong>Título: </strong> {{ selectedTask.title }}
-  </p>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="task-detail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" *ngIf="selectedTask" >
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Detalhes da tarefa: {{ selectedTask.title }}</h4>
-      </div>
-      <div class="modal-body">
-        <input [(ngModel)]="selectedTask.title" type="text" class="form-control">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
