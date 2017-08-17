@@ -16,15 +16,16 @@ export class TaskService {
 
   public getTasks(): Observable<Task[]> { 
     return this.http.get(this.tasksUrl)
-             .map((response: Response) => response.json().data as Task[]);
+              .map((response: Response) => response.json().data as Task[]);
   }
 
   public getImportantTasks(): Promise<Task[]> {
     return Promise.resolve(TASKS.slice(0, 3));
   }
 
-  public getTask(id: number): Promise<Task> {
-    return this.getTasks()
-              .then(tasks => tasks.find(task => task.id === id))
+  public getTask(id: number): Observable<Task> {
+    let url = `#{this.tasksUrl}/${id}`;
+    return this.http.get(url)
+              .map((response: Response) => response.json().data as Task);
   }
 }
