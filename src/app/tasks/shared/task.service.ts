@@ -19,12 +19,13 @@ export class TaskService {
               .map((response: Response) => response.json().data as Task[]);
   }
 
-  public getImportantTasks(): Promise<Task[]> {
-    return Promise.resolve(TASKS.slice(0, 3));
+  public getImportantTasks(): Observable<Task[]> {
+    return this.getTasks()
+              .map(tasks => tasks.slice(0, 4));
   }
 
   public getTask(id: number): Observable<Task> {
-    let url = `#{this.tasksUrl}/${id}`;
+    let url = `${this.tasksUrl}/${id}`;
     return this.http.get(url)
               .map((response: Response) => response.json().data as Task);
   }
