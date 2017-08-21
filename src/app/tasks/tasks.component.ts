@@ -10,17 +10,44 @@ import { Task } from './shared/task.model';
 
 export class TasksComponent implements OnInit {
   public tasks: Array<Task>;
-  public selectedTask: Task;
+  public newTask: Task;
 
-  public constructor(private taskService: TaskService) { }
-
-  public ngOnInit() {
-    this.taskService.getTasks()
-                    .then((tasks) => this.tasks = tasks)
-                    .catch((error_msg) => console.log(error_msg));
+  public constructor(private taskService: TaskService) { 
+    this.newTask = new Task(null, '');
   }
 
-  public onSelect(task: Task): void {
-    this.selectedTask = task;
+  public ngOnInit() {
+    this.taskService.getAll()
+                    .subscribe(
+                      tasks => this.tasks = tasks,
+                      error => alert("Ocorreu um erro no servidor, tente mais tarde.")
+                    );
+  }
+
+  public createTask() {
+    this.newTask.title = this.newTask.title.trim();
+
+    if (!this.newTask.title) {
+      alert('A tarefa deve ter um título.');
+    } else {
+      this.taskService.create(this.newTask)
+        .subscribe(
+          (task) => {
+            this.tasks.push(task);
+            this.newTask = new Task(null, '');
+          },
+          () => alert("Ocorreu um erro no servidor, tente mais tarde.")
+        )
+    }
+  }
+
+  public deleteTask(task: Task) {
+    if (confirm(`Deseja realmente excluir a tarefa "${task.title}"?`)) {
+      this.taskService.delete(task.id)
+          .subscribe(
+            () => this.tasks = this.tasks.filter(t => t !== task),
+            () => alert("Ocorreu um erro no servidor, tente mais tarde.")
+          );
+    } 
   }
 }
