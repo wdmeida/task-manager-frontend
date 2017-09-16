@@ -18,10 +18,10 @@ export class TasksComponent implements OnInit {
 
   public ngOnInit() {
     this.taskService.getAll()
-                    .subscribe(
-                      tasks => this.tasks = tasks,
-                      error => alert("Ocorreu um erro no servidor, tente mais tarde.")
-                    );
+      .subscribe(
+        tasks => this.tasks = tasks.sort((a, b) => b.id - a.id),
+        error => alert("Ocorreu um erro no servidor, tente mais tarde.")
+      );
   }
 
   public createTask() {
@@ -33,7 +33,7 @@ export class TasksComponent implements OnInit {
       this.taskService.create(this.newTask)
         .subscribe(
           (task) => {
-            this.tasks.push(task);
+            this.tasks.unshift(task);
             this.newTask = new Task(null, '');
           },
           () => alert("Ocorreu um erro no servidor, tente mais tarde.")
@@ -44,10 +44,10 @@ export class TasksComponent implements OnInit {
   public deleteTask(task: Task) {
     if (confirm(`Deseja realmente excluir a tarefa "${task.title}"?`)) {
       this.taskService.delete(task.id)
-          .subscribe(
-            () => this.tasks = this.tasks.filter(t => t !== task),
-            () => alert("Ocorreu um erro no servidor, tente mais tarde.")
-          );
+        .subscribe(
+          () => this.tasks = this.tasks.filter(t => t !== task),
+          () => alert("Ocorreu um erro no servidor, tente mais tarde.")
+        );
     } 
   }
 }
