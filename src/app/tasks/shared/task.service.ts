@@ -8,7 +8,7 @@ import { Task } from './task.model';
 @Injectable()
 
 export class TaskService {
-  public tasksUrl = "api/tasks";
+  public tasksUrl = 'api/tasks';
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
 
   public constructor(private http: Http){ }
