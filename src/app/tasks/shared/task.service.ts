@@ -1,7 +1,7 @@
 import { Headers, Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 
 import { Task } from './task.model';
 
@@ -66,7 +66,7 @@ export class TaskService {
   }
 
   private handleErrors(error: Response) {
-    console.log("SALVANDO O ERRO EM UM ARQUIVO DE LOG - DETALHES DO ERRO => ", error);
+    console.log('SALVANDO O ERRO EM UM ARQUIVO DE LOG - DETALHES DO ERRO => ', error);
     return Observable.throw(error);
   }
 }

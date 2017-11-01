@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { ActivatedRoute, Params } from "@angular/router";
-import { Location } from "@angular/common";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { FormUtils } from './../../shared/form.utils';
 import { Task } from './../shared/task.model';
@@ -49,7 +49,7 @@ export class TaskDetailComponent implements OnInit, AfterViewInit {
       .switchMap((params: Params) => this.taskService.getById(+params['id']))
       .subscribe(
         task => this.setTask(task),
-        error => alert("Ocorreu um erro no servidor, tente mais tarde.")
+        error => alert('Ocorreu um erro no servidor, tente mais tarde.')
       )
   }
 
@@ -81,8 +81,8 @@ export class TaskDetailComponent implements OnInit, AfterViewInit {
     
     this.taskService.update(this.task)
       .subscribe(
-        () => alert("Tarefa atualizada com sucesso!"),
-        () => alert("Ocorreu um erro no servidor, tente mais tarde.")
+        () => alert('Tarefa atualizada com sucesso!'),
+        () => alert('Ocorreu um erro no servidor, tente mais tarde.')
       )
   }
 }
