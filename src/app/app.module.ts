@@ -23,6 +23,7 @@ import { TaskService } from './tasks/shared/task.service';
 
 // Guards imports
 import { AuthGuard } from './guards/auth.guard';
+import { NotAuthenticatedGuard } from './guards/not-authenticated.guard';
 
 // Modules Imports
 import { AppRoutingModule } from './app-routing.module';
@@ -64,6 +65,7 @@ import * as datetimepicker from 'eonasdan-bootstrap-datetimepicker';
     Angular2TokenService,
     AuthService,
     AuthGuard,
+    NotAuthenticatedGuard,
     TaskService
   ],
   bootstrap: [
