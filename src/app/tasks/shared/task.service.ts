@@ -11,9 +11,9 @@ export class TaskService {
   public tasksUrl = 'api/tasks';
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
 
-  public constructor(private http: Http){ }
+  public constructor(private http: Http) { }
 
-  public getAll(): Observable<Task[]> { 
+  public getAll(): Observable<Task[]> {
     return this.http.get(this.tasksUrl)
               .catch(this.handleErrors)
               .map((response: Response) => response.json().data as Task[]);
