@@ -12,7 +12,7 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div *ngIf="authService.userSignedIn()" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active">
           <a routerLink="/dashboard">Dashboard</a>
@@ -22,8 +22,15 @@
         </li>
       </ul>
 
-      <div class="navbar-form navbar-right">
+      <div class="navbar-form navbar-left">
         <task-search></task-search>
+      </div>
+
+      <div class="navbar-form navbar-right">
+        <button class="btn btn-danger" (click)="signOutUser()">
+          <span class="glyphicon glyphicon-log-out"></span>
+          Sair
+        </button>
       </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

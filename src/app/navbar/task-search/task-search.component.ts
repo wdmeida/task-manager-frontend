@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -15,7 +15,7 @@ import { TaskService } from './../../tasks/shared/task.service';
 export class TaskSearchComponent implements OnInit {
   public searchTerms: Subject<string> = new Subject();
   public tasks: Task[] = [];
-  
+
   public constructor(
     private taskService: TaskService,
     private router: Router
