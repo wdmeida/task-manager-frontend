@@ -11,9 +11,9 @@ A Api que será consumida pode ser acessado através do link abaixo:
 
 ## Executando o projeto
 
-Para executar o projeto, entre no diretório 'task-manager-frontend', no terminal e instale as dependências:
+Para executar o projeto, entre no diretório ***task-manager-frontend*** utilizando o terminal e instale as dependências:
 
-```$ npm i```
+```$ npm install```
 
 É necessário que a [API](https://github.com/wdmeida/task-manager-api) esteja em execução antes de iniciar a aplicação. Execute-a seguindo as instruções contidas no arquivo **README.md** da mesma.
 
