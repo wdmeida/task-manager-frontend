@@ -1,28 +1,26 @@
-# TaskmanagerFrontend
+# Task Manager API
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.6.
+## O Projeto
 
-## Development server
+Projeto desenvolvido durante o Curso de [**API Rails 5 + Aplicação Angular 4 + App Móvel NativeScript**](https://www.udemy.com/rails-angular-nativescript-apis-e-apicativos-android-ios-e-web/learn/v4/overview). O projeto consiste no desenvolvimento de uma APP, utilizando [**Angular**](https://angular.io/), para consumo de uma API de gerenciamento de tarefas desenvolvida em Ruby on Rails 5.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A Api que será consumida pode ser acessado através do link abaixo:
 
-## Code scaffolding
+* [Task Manager Api](https://github.com/wdmeida/task-manager-api)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
 
-## Build
+## Executando o projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Para executar o projeto, entre no diretório ***task-manager-frontend*** utilizando o terminal e instale as dependências:
 
-## Running unit tests
+```$ npm install```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+É necessário que a [API](https://github.com/wdmeida/task-manager-api) esteja em execução antes de iniciar a aplicação. Execute-a seguindo as instruções contidas no arquivo **README.md** da mesma.
 
-## Running end-to-end tests
+Para executar o frontend, execute o comando:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+```$ ng serve```
 
-## Further help
+Abra o browser e acesse a aplicação através da seguinte URL:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```http://localhost:4200```
