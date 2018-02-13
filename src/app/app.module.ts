@@ -4,9 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 
-// Angular plugins imports
-import { Angular2TokenService } from 'angular2-token';
-
 // Components Imports
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -16,6 +13,7 @@ import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
 import { TaskSearchComponent } from './navbar/task-search/task-search.component';
+import { TokenService } from './shared/token.service';
 
 // Services Imports
 import { AuthService } from './shared/auth.service';
@@ -62,11 +60,11 @@ import * as datetimepicker from 'eonasdan-bootstrap-datetimepicker';
     AppRoutingModule
   ],
   providers: [
-    Angular2TokenService,
     AuthService,
     AuthGuard,
     NotAuthenticatedGuard,
-    TaskService
+    TaskService,
+    TokenService
   ],
   bootstrap: [
     AppComponent
